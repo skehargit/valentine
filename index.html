@@ -4,30 +4,148 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>valentine</title>
+    <link rel="icon" href="love-png-5.png">
     <style>
         *{
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: rgba(0,0,0,0)!important;
+			-webkit-focus-ring-color:rgba(255,255,255,0);
+			outline: none !important;
         }
         #main{
             display: flex;
             align-items: center;
             justify-content: center;
+            background: url('wp2707266-love-background-hd.jpg');
+            background-size: cover;
+            min-height: 100vh;
+            height: fit-content;
+            width: 100vw;
+            background-position: center;
+            position: relative;
         }
+        #container{
+            border: 1px solid rgba(103, 4, 78, 0.523);
+            width: 90%;
+            /* height: 0%; */
+            backdrop-filter: blur(8px);
+            background: rgba(101, 2, 74, 0.036);
+            padding: 20px 0;
+            border-radius: 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+        }
+        h1{
+            text-align: center;
+            font-family: sans-serif;
+        }
+        #img-sec{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #img-sec img{
+            width: 300px;
+
+        }
+        #img2{
+            display: none;
+        }
+        #btn-sec{
+            gap: 10px;
+        }
+        #btn-sec button{
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: none;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            
+
+        }
+        #green{
+            backdrop-filter: blur(8px);
+            background: rgb(66, 248, 37);
+            transition: 0.3s;
+        }
+        #red{
+            background: red;
+        }
+        footer{
+            position: absolute;
+            bottom: 0;
+            color: white;
+            font-family: sans-serif;
+            font-size: 10px;
+        }
+        @media (max-width:500px){
+            h1{
+                font-size: 1.5rem;
+            }
+            #img-sec img{
+             width: 200px;
+            }
+            #btn-sec{
+                gap: 10px;
+            }
+        }
+
     </style>
 </head>
 <body>
     <div id="main">
-        <div id="img-sec">
-            <img src="" alt="">
-            <h1></h1>
+        <div id="container">
+            <div id="img-sec">
+                <h1 id="text">will you be my valentine ?</h1>
+                <img id="img1" src="giphy.gif" alt="">
+                <img id="img2" src="giphy2.gif" alt="">
+                
+            </div>
+            <div id="btn-sec">
+                <button class="btn" id="green">YES</button>
+                <button class="btn" id="red">NO</button>
+    
+            </div>
         </div>
-        <div id="button-sec">
-            <button class="btn" id="btn1"></button>
-            <button class="btn" id="btn2"></button>
-
-        </div>
+        <footer>
+            &#169; created by sekhar 
+        </footer>
     </div>
+
+    <script>
+        var btnred=document.getElementById('red');
+        var btngreen=document.getElementById('green');
+        var arr=["Are you sure ?","Really sure ?","Think again","Last chance!","Surely not ?","You might regreat this","Give it another thought!","This could be mistake!","Don't be so cold!","Wouldn't reconsider?","Is that your final answer?","You're breaking my heart","Please click yes🥹"];
+        var img1=document.getElementById('img1');
+        var img2=document.getElementById('img2');
+        var w = window.innerWidth;
+
+        let i=0;
+        btnred.addEventListener('click',()=>{
+            if(i<arr.length){
+                btnred.textContent=arr[i++];
+            }
+            if(w>600){
+                btngreen.style.fontSize=i*1+'rem';
+            }else{
+                btngreen.style.fontSize=i*0.5+'rem';
+            }
+            
+        });
+        btngreen.addEventListener('click',()=>{
+            document.getElementById('text').innerHTML='Hooray!😍, Yippee!🥰, Yahoo!🤪'
+            document.getElementById('btn-sec').style.display='none';
+            img1.style.display='none'
+            img2.style.display='block'
+        })
+    </script>
 </body>
 </html>
